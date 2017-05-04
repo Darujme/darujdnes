@@ -1,0 +1,38 @@
+.sidebar
+	font-size 0
+	&-item
+		display inline-block
+		vertical-align top
+		&.view-tile
+			background-color $c-primary
+	&-img
+		display block
+
+	@media $1000M
+		margin-top 70px
+		&-item
+			width 50%
+			&.view-tile
+				width 100%
+				max-width none
+				.sidebar-img
+					display none
+		&-img
+			width 100%
+
+	@media $1200
+		max-width 580px
+		text-align right
+		absolute right 100px top -50px
+		width 50%
+		&-item
+			width 50%
+			&:nth-child(1)
+			&:nth-child(3)
+				relative top 145px
+		&-img
+			width 100%
+		&.view-withgallery
+			width 40%
+			right 0
+			top -364px

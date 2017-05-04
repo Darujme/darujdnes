@@ -1,0 +1,48 @@
+body
+	color $c-text
+	font-family $f-primary
+	font-size $f-base-size
+	line-height $f-base-lh
+	font-smoothing antialiased
+	position relative
+	font-weight 300
+	-webkit-tap-highlight-color rgba($c-primary, .1)
+::selection
+	background-color $c-primary
+	color #fff
+img
+	max-width 100%
+	height auto
+a
+	color $c-primary
+	outline none
+b
+strong
+	font-weight bold
+
+.center
+	text-align center
+
+.upper
+	text-transform uppercase
+
+.relative
+	position relative
+
+.hide
+	display none !important
+
+@media $768
+	body
+		font-size $f-base-size
+
+@media $1000M
+	.view-desktop
+		display none !important
+@media $1000
+	.view-mobile
+		display none !important
+
+@media $768M
+	.view-tablet
+		display none !important

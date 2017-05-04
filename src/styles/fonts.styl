@@ -1,0 +1,11 @@
+font-url(file)
+  return '../fonts/' + file
+
+webfont(family, file)
+  @font-face
+    font-family family
+    src url(font-url(file + '.woff')) format('woff'),
+        url(font-url(file + '.ttf')) format('truetype')
+
+// Webfonts import
+webfont('UniSansBook', 'UniSansBook')

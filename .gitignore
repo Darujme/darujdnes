@@ -1,0 +1,14 @@
+[Tt]humbs.db
+[Dd]esktop.ini
+*.DS_store
+.DS_store?
+._*
+.Trashes
+
+/mango.local.json
+/.mango-snippet.html
+/node_modules
+/npm-debug.log
+/vendor
+/assets
+.idea

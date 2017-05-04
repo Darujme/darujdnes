@@ -1,0 +1,59 @@
+.contributebox
+	background rgba(0,0,0,0.50)
+	border 1px solid rgba(72,72,72,0.30)
+	border-radius $radius
+	padding 15px
+	color #fff
+	table
+		border-spacing 0
+	small
+		font-size 13px
+	&-simple
+		color #fff
+		display inline-block
+		vertical-align top
+	&-img
+		size 68px
+		background-color #fff
+		border-radius 50%
+		position relative
+		overflow hidden
+		margin-right 30px
+		img
+			border-radius 50%
+			absolute-center()
+	&-main
+		p
+			margin 0
+		.progressbar
+			margin 8px 0
+			max-width 200px
+	&-message
+		font-size 28px
+		font-weight bold
+		line-height 1.2
+	&-price
+		font-size 34px
+		font-weight bold
+		line-height 1.2
+		&.view-m
+			font-size 26px
+
+	@media $1000M
+		table
+			td
+				display block
+				padding 5px 0
+
+	@media $1000
+		padding 25px
+		display inline-block
+		vertical-align middle
+		&-main
+			padding-right 40px
+		&-message
+			font-size 36px
+		&-price
+			font-size 46px
+			&.view-m
+				font-size 36px

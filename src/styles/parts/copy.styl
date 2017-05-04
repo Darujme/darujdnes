@@ -1,0 +1,21 @@
+.copy
+	padding 25px 0
+	position relative
+	overflow hidden
+	font-size 13px
+	p
+		margin 0
+
+	@media $1000M
+		text-align center
+		&-logo
+			margin 20px 0
+	@media $1000
+		&-left
+			float left
+		&-right
+			float right
+		&-logo
+			absolute left right top 50%
+			text-align center
+			transform translate(0, -50%)

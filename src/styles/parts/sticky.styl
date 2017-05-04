@@ -1,0 +1,68 @@
+.sticky
+	fixed left top
+	width 100%
+	z-index 500
+	background #fff
+	border-bottom 1px solid #DCDCDC
+	box-shadow 0 2px 4px 0 rgba(0,0,0,0.08)
+	padding 10px 0
+	opacity 0
+	transition .3s ease all
+	pointer-events none
+	.is-scrolled &
+		opacity 1
+		pointer-events auto
+	&-title.title
+		font-size 18px
+	&-left
+		img
+			border-radius 50%
+			absolute left top 50%
+			transform translate(0, -50%)
+		img
+		h1
+			display inline-block
+			vertical-align middle
+			margin-right 10px
+		h1
+			line-height 1.3
+	&-right
+		.sticky-price
+		.btn
+			display inline-block
+			vertical-align middle
+	&-price
+		font-size 14px
+		color #7C7C7C
+		p
+			margin 0
+		b
+			font-size 18px
+			color $c-text
+
+	@media $768M
+		text-align center
+		&-left
+			img
+				display none
+			h1
+				margin-bottom 10px
+
+	@media $1000M
+		&-price
+			p
+				display none
+
+	@media $768
+		&-left
+			float left
+			padding-left 70px
+			height 40px
+			h1
+				line-height 40px
+		&-right
+			float right
+			.sticky-price
+			.btn
+				margin-left 20px
+

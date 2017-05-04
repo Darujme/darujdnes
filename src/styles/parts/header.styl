@@ -1,0 +1,55 @@
+.header
+	background-size cover
+	background-position center center
+	background-repeat no-repeat
+	background-image url(../images/header-bg.jpg)
+	padding 40px 0
+	position relative
+	color #fff
+	&:before
+		content ''
+		absolute-fill()
+		background-color rgba(#000, .5)
+	&-title.title
+		font-size 35px
+		a
+			text-decoration none
+			color #fff
+	&-nav
+		font-size 18px
+		a
+			color #fff
+	&-morebtn
+		display inline-block
+		margin-left 10px
+		text-decoration none
+		span
+			display inline-block
+			vertical-align top
+			position relative
+			&:before
+				content ''
+				absolute left right bottom 1px
+				height 1px
+				background-color $c-primary
+				opacity .4
+		svg
+			margin-left 2px
+			transition .2s ease all
+	&.view-static
+		background $c-primary
+		&:before
+			display none
+
+	@media $768
+		padding 80px 0
+		&-title.title
+			font-size 57px
+
+	@media $1000
+		&-title.title
+			a:hover
+				text-decoration underline
+		&-morebtn:hover
+			svg
+				transform translate(0, 3px)

@@ -1,0 +1,49 @@
+{
+  "src_folder": "src",
+  "dist_folder": "assets",
+  "styles": [
+    "src/styles/index.styl",
+    "src/styles/oldie.styl",
+    "src/styles/print.styl",
+    "src/styles/wp-admin.styl",
+    "src/styles/wp-editor.styl"
+  ],
+  "scripts": [
+    "src/scripts/index.es6",
+    "src/scripts/wp-admin.es6"
+  ],
+  "sprites":[
+    {
+      "path" : "src/images/sources/*.svg",
+      "name" : false
+    }
+  ],
+  "images": [
+    "src/images/**/*.{jpg,png,gif}"
+  ],
+  "static": [
+    "src/libs/**",
+    "src/images/**/*.svg",
+    "src/fonts/**",
+    "node_modules/lt-ie-9/lt-ie-9.min.js"
+  ],
+  "buildstamp": [
+    "assets/styles/index.css",
+    "assets/styles/oldie.css",
+    "assets/styles/print.css",
+    "assets/scripts/index.js"
+  ],
+  "dependencies": [
+    "bootstrap-styl",
+    "jquery",
+    "lt-ie-9"
+  ],
+  "watch": [
+    "**/*.{latte,php}"
+  ],
+  "hooks": {
+    "init": "mango install"
+  },
+  "snippet": "yes please",
+  "version": ">=0.24"
+}
