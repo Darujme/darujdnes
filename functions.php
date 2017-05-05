@@ -95,14 +95,7 @@ function calculateProgress(){
 
 	$target = rwmb_meta( 'cta_target_price', '', $Post);
 
-	if (!$target) {
-		return 0;
-	}
-
-	$now = darujmeCountCollectedAmount();
-	$percent = $now / ($target / 100);
-
-	return $percent;
+	return darujmeCalculateProgress($target);
 }
 
 

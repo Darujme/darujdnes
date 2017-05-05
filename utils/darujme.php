@@ -2,56 +2,60 @@
 
 define('DARUJME_CACHE_SECONDS', 15);
 
-function darujmeGetSettings($forceUpdate = FALSE) {
-	static $settings;
-	if (!$settings || $forceUpdate) {
-		$settings = get_option('darujme_settings', []);
+if (!function_exists('darujmeGetSettings')) {
+	function darujmeGetSettings($forceUpdate = FALSE) {
+		static $settings;
+		if (!$settings || $forceUpdate) {
+			$settings = get_option('darujme_settings', []);
 
-		if (!isset($settings['api_id'])) {
-			$settings['api_id'] = '';
+			if (!isset($settings['api_id'])) {
+				$settings['api_id'] = '';
+			}
+
+			if (!isset($settings['api_secret'])) {
+				$settings['api_secret'] = '';
+			}
+
+			if (!isset($settings['items'])) {
+				$settings['items'] = [];
+			}
 		}
 
-		if (!isset($settings['api_secret'])) {
-			$settings['api_secret'] = '';
-		}
-
-		if (!isset($settings['items'])) {
-			$settings['items'] = [];
-		}
+		return $settings;
 	}
-
-	return $settings;
 }
 
-function darujmeGetThemeSettings($forceUpdate = FALSE) {
-	static $themeSettings;
-	if (!$themeSettings || $forceUpdate) {
-		$themeSettings = get_option('darujme_theme_settings', [
-			'footer_left' => '',
-			'footer_right' => '',
-			'color_primary' => '',
-			'color_secondary' => '',
-		]);
+if (!function_exists('darujmeGetThemeSettings')) {
+	function darujmeGetThemeSettings($forceUpdate = FALSE) {
+		static $themeSettings;
+		if (!$themeSettings || $forceUpdate) {
+			$themeSettings = get_option('darujme_theme_settings', [
+				'footer_left' => '',
+				'footer_right' => '',
+				'color_primary' => '',
+				'color_secondary' => '',
+			]);
 
-		if (!isset($themeSettings['footer_left'])) {
-			$themeSettings['footer_left'] = '';
+			if (!isset($themeSettings['footer_left'])) {
+				$themeSettings['footer_left'] = '';
+			}
+
+			if (!isset($themeSettings['footer_right'])) {
+				$themeSettings['footer_right'] = '';
+			}
+
+			if (!isset($themeSettings['color_primary'])) {
+				$themeSettings['color_primary'] = '';
+			}
+
+			if (!isset($themeSettings['color_secondary'])) {
+				$themeSettings['color_secondary'] = '';
+			}
+
 		}
 
-		if (!isset($themeSettings['footer_right'])) {
-			$themeSettings['footer_right'] = '';
-		}
-
-		if (!isset($themeSettings['color_primary'])) {
-			$themeSettings['color_primary'] = '';
-		}
-
-		if (!isset($themeSettings['color_secondary'])) {
-			$themeSettings['color_secondary'] = '';
-		}
-
+		return $themeSettings;
 	}
-
-	return $themeSettings;
 }
 
 function darujmeGetThemeSettingsItem($name) {
@@ -59,10 +63,16 @@ function darujmeGetThemeSettingsItem($name) {
 }
 
 function darujmeGetApiId() {
+	if (defined('DARUJME_API_ID')) {
+		return DARUJME_API_ID;
+	}
 	return darujmeGetSettings()['api_id'];
 }
 
 function darujmeGetApiSecret() {
+	if (defined('DARUJME_API_SECRET')) {
+		return DARUJME_API_SECRET;
+	}
 	return darujmeGetSettings()['api_secret'];
 }
 
@@ -162,6 +172,17 @@ function darujmeCountCollectedAmount() {
 	$sum = round($sum / 100);
 
 	return $sum;
+}
+
+function darujmeCalculateProgress($target) {
+	if (!$target) {
+		return 0;
+	}
+
+	$now = darujmeCountCollectedAmount();
+	$percent = $now / ($target / 100);
+
+	return $percent;
 }
 
 function darujmeCountDonors() {

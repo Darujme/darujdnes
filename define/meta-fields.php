@@ -1,11 +1,16 @@
 <?php
+
+if (!defined('DARUJME_PROJECT_POST_TYPE')) {
+	define('DARUJME_PROJECT_POST_TYPE', 'page');
+}
+
 add_filter( 'rwmb_meta_boxes', 'register_meta_boxes' );
 
 function register_meta_boxes( $meta_boxes ) {
 	$meta_boxes[] = array(
 		'id'         => 'contributebox',
 		'title'      => 'CTA Lišta',
-		'post_types' => array( 'page' ),
+		'post_types' => array( DARUJME_PROJECT_POST_TYPE ),
 
 		'fields' => array(
 			array(
@@ -72,7 +77,7 @@ function register_meta_boxes( $meta_boxes ) {
 	$meta_boxes[] = array(
 		'id'         => 'header',
 		'title'      => 'Hlavička',
-		'post_types' => array( 'page' ),
+		'post_types' => array( DARUJME_PROJECT_POST_TYPE ),
 
 		'fields' => array(
 			array(
@@ -105,7 +110,7 @@ function register_meta_boxes( $meta_boxes ) {
 	$meta_boxes[] = array(
 		'id'         => 'sidebar',
 		'title'      => 'Sidebar',
-		'post_types' => array( 'page' ),
+		'post_types' => array( DARUJME_PROJECT_POST_TYPE ),
 		'fields'     => array(
 			array(
 				'name' => 'Galerie',
@@ -157,7 +162,7 @@ function register_meta_boxes( $meta_boxes ) {
 	$meta_boxes[] = array(
 		'id'         => 'projects',
 		'title'      => 'Projekty',
-		'post_types' => array( 'page' ),
+		'post_types' => array( DARUJME_PROJECT_POST_TYPE ),
 		'fields'     => array(
 			array(
 				'name' => 'Nadpis',

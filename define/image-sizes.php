@@ -1,7 +1,7 @@
 <?php
-add_action('after_setup_theme', 'add_image_sizes');
+add_action('after_setup_theme', 'darujdnes_add_image_sizes');
 
-function add_image_sizes() {
+function darujdnes_add_image_sizes() {
 	add_image_size('l', 1280);
 
 	add_image_size('square50', 50, 50, true);

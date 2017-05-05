@@ -2,6 +2,8 @@
 
 require_once __DIR__.'/compile_colors_css.php';
 
+require_once __DIR__ . '/../utils/darujme.php';
+
 function register_darujme_settings_menu_page(){
 	$suffix = add_menu_page(
 		'Nastavení propojení s Darujme.cz',

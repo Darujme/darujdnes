@@ -1,4 +1,4 @@
-<?php $theme_settings = get_option('darujme_theme_settings');?>
+<?php $theme_settings = darujmeGetThemeSettings();?>
 
 <footer class="copy">
 	<div class="container">

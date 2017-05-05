@@ -1,19 +1,22 @@
 <?php
+
 if (have_posts()) : while (have_posts()) : the_post();
 
-echo get_template_part('layout-header');
+$Post = $post->ID;
 
-echo get_template_part('parts/sticky');
+require __DIR__ . '/layout-header.php';
 
-echo get_template_part('parts/header');
+require __DIR__ . '/parts/sticky.php';
 
-echo get_template_part('parts/textbox');
+require __DIR__ . '/parts/header.php';
 
-echo get_template_part('parts/projects');
+require __DIR__ . '/parts/textbox.php';
 
-echo get_template_part('parts/copy');
+require __DIR__ . '/parts/projects.php';
 
-echo get_template_part('layout-footer');
+require __DIR__ . '/parts/copy.php';
+
+require __DIR__ . '/layout-footer.php';
 
 endwhile; endif;
 ?>
