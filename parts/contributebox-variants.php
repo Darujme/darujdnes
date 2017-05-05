@@ -83,7 +83,7 @@
 			</td>
 			<td valign="bottom">
 				<a href="#" class="btn view-secondary">Chci také darovat</a>
-				<div class="center"><small>13 025 přispěvatelů</small></div>
+				<div class="center"><small>13 025 dárců</small></div>
 			</td>
 		</tr>
 	</table>

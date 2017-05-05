@@ -36,7 +36,7 @@ $bg = metaimage('h_image', 'l', $Post);
 			<div class="contributebox-simple">
 				<a href="<?php echo $ctaButtonLink;?>" class="btn view-secondary"><?php print($ctaButtonLabel ? $ctaButtonLabel : 'Chci také darovat') ?></a>
 				<?php if($ctaSubscribers){ ?>
-					<div class="center"><small><?php echo esc_html(darujmeCountDonors()) ?> přispěvatelů</small></div>
+					<div class="center"><small><?php echo esc_html(darujmeCountDonors()) ?> dárců</small></div>
 				<?php } ?>
 			</div>
 		<?php }else{
@@ -82,7 +82,7 @@ $bg = metaimage('h_image', 'l', $Post);
 					<td>
 						<a href="<?php echo $ctaButtonLink;?>" class="btn view-secondary"><?php print($ctaButtonLabel ? $ctaButtonLabel : 'Chci také darovat') ?></a>
 						<?php if($ctaSubscribers){ ?>
-						<div class="center"><small><?php echo esc_html(darujmeCountDonors()) ?> přispěvatelů</small></div>
+						<div class="center"><small><?php echo esc_html(darujmeCountDonors()) ?> dárců</small></div>
 						<?php } ?>
 					</td>
 					<?php } ?>
