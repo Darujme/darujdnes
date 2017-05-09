@@ -24,15 +24,18 @@ function hex2rgb($hex) {
 * Compile CSS after acf field update
 *
 */
-function compile_color_css( $themeColor, $themeColor2 )
+function compile_color_css( $themeColor, $themeColor2, $source = NULL, $target = NULL )
 {
+	$source = $source ? $source : get_template_directory().'/assets/styles/index.css';
+	$target = $target ? $target : get_template_directory().'/assets/styles/index_colored.css';
+
   if ( !current_user_can( 'manage_options' ) ) {
     die('Pro tuto funkci je nutné být přihlášen jako administrátor.');
   }
   $replaceColor = strtolower('#ED9136');
   $replaceColor2 = strtolower('#07AE1C');
 
-	$cssFile = file_get_contents(get_template_directory().'/assets/styles/index.css');
+	$cssFile = file_get_contents($source);
 
   $cssFile = str_replace($replaceColor, $themeColor, $cssFile);
   $cssFile = str_replace(hex2rgb($replaceColor), hex2rgb($themeColor), $cssFile);
@@ -40,6 +43,6 @@ function compile_color_css( $themeColor, $themeColor2 )
   $cssFile = str_replace($replaceColor2, $themeColor2, $cssFile);
   $cssFile = str_replace(hex2rgb($replaceColor2), hex2rgb($themeColor2), $cssFile);
 
-  file_put_contents(get_template_directory().'/assets/styles/index_colored.css', $cssFile);
+  file_put_contents($target, $cssFile);
   return $value;
 }
