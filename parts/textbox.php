@@ -7,7 +7,7 @@
 	</div>
 
 	<?php
-	echo get_template_part('parts/sidebar');
+	require __DIR__ . '/sidebar.php';
 	?>
 
 </main>
