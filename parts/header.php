@@ -34,7 +34,7 @@ $bg = metaimage('h_image', 'l', $Post);
 		if(!$ctaPrice && !$ctaLogo && $ctaButton){
 		?>
 			<div class="contributebox-simple">
-				<a href="<?php echo $ctaButtonLink;?>" class="btn view-secondary"><?php print($ctaButtonLabel ? $ctaButtonLabel : 'Chci také darovat') ?></a>
+				<a href="<?php print($ctaButtonLink ? $ctaButtonLink : '#projekty');?>" class="btn view-secondary"><?php print($ctaButtonLabel ? $ctaButtonLabel : 'Chci také darovat') ?></a>
 				<?php if($ctaSubscribers){ ?>
 					<div class="center"><small><?php echo esc_html(darujmeCountDonors()) ?> dárců</small></div>
 				<?php } ?>
@@ -80,7 +80,7 @@ $bg = metaimage('h_image', 'l', $Post);
 
 					if($ctaButton){ ?>
 					<td>
-						<a href="<?php echo $ctaButtonLink;?>" class="btn view-secondary"><?php print($ctaButtonLabel ? $ctaButtonLabel : 'Chci také darovat') ?></a>
+						<a href="<?php print($ctaButtonLink ? $ctaButtonLink : '#projekty');?>" class="btn view-secondary"><?php print($ctaButtonLabel ? $ctaButtonLabel : 'Chci také darovat') ?></a>
 						<?php if($ctaSubscribers){ ?>
 						<div class="center"><small><?php echo esc_html(darujmeCountDonors()) ?> dárců</small></div>
 						<?php } ?>
