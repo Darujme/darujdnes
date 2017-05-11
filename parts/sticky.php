@@ -22,7 +22,7 @@ $ctaButtonLink = rwmb_meta( 'cta_button_link', '', $Post);
 			<div class="sticky-price">
 				<p>Již se vybralo: <b><?php echo str_replace(',', '&nbsp;', number_format(darujmeCountCollectedAmount(), 0));?> Kč</b></p>
 			</div>
-			<a href="<?php print($ctaButtonLink ? $ctaButtonLink : home_url('#projekty'));?>" class="btn view-secondary-s view-short"><?php print($ctaButtonLabel ? $ctaButtonLabel : 'Chci také darovat') ?></a>
+			<a href="<?php print($ctaButtonLink ? $ctaButtonLink : get_permalink().'#projekty');?>" class="btn view-secondary-s view-short"><?php print($ctaButtonLabel ? $ctaButtonLabel : 'Chci také darovat') ?></a>
 		</div>
 
 	</div>
