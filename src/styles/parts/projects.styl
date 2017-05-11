@@ -58,12 +58,18 @@
 		padding-bottom 60px
 		&-list
 			space-between()
+			&:after
+				content ''
+				flex auto
 		&-item
 			display inline-block
 			vertical-align top
 			width 48%
 			max-width 360px
-			margin-bottom 20px
+			margin-bottom 2%
+			margin-right 2%
+			&:nth-child(3n)
+				margin-right 0
 			&-hr
 				margin 15px auto
 
@@ -74,4 +80,3 @@
 	@media $1000
 		&-item
 			width 32%
-
