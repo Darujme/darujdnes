@@ -3,6 +3,7 @@ $ctaLogo = metaimage('cta_logo', 'square50', $Post);
 $ctaButton = rwmb_meta( 'cta_button', '', $Post);
 $ctaButtonLabel = rwmb_meta( 'cta_button_label', '', $Post);
 $ctaButtonLink = rwmb_meta( 'cta_button_link', '', $Post);
+$ctaPrice = rwmb_meta( 'cta_price', '', $Post);
 ?>
 <section class="sticky">
 	<div class="container view-l">
@@ -19,10 +20,21 @@ $ctaButtonLink = rwmb_meta( 'cta_button_link', '', $Post);
 		</div>
 
 		<div class="sticky-right">
+			<?php
+			if($ctaPrice){
+			?>
 			<div class="sticky-price">
 				<p>Již se vybralo: <b><?php echo str_replace(',', '&nbsp;', number_format(darujmeCountCollectedAmount(), 0));?> Kč</b></p>
 			</div>
-			<a href="<?php print($ctaButtonLink ? $ctaButtonLink : get_permalink().'#projekty');?>" class="btn view-secondary-s view-short"><?php print($ctaButtonLabel ? $ctaButtonLabel : 'Chci také darovat') ?></a>
+			<?php
+			}
+
+			if($ctaButton){
+			?>
+				<a href="<?php print($ctaButtonLink ? $ctaButtonLink : get_permalink().'#projekty');?>" class="btn view-secondary-s view-short"><?php print($ctaButtonLabel ? $ctaButtonLabel : 'Chci také darovat') ?></a>
+			<?php
+			}
+			?>
 		</div>
 
 	</div>
