@@ -61,7 +61,7 @@ $bg = metaimage('h_image', 'l', $Post);
 					<td>
 						<div class="contributebox-main">
 							<?php if($ctaProgressbar){ ?>
-									<div class="contributebox-price view-m"><?php echo str_replace(',', '&nbsp;', number_format(darujmeCountCollectedAmount(), 0));?> Kč</div>
+									<div class="contributebox-price view-m"><?php echo str_replace(',', '&nbsp;', number_format(darujmeCountCollectedAmount(), 0));?>&nbsp;Kč</div>
 									<div class="progressbar">
 										<span style="width: <?php echo number_format($progress, 2, '.', '');?>%"></span>
 									</div>
