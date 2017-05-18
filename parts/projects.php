@@ -19,10 +19,16 @@
 					</div>
 					<div class="projects-item-logo-name"><?php echo esc_html($project['organization_name']) ?></div>
 					<div class="projects-item-hr"></div>
-					<?php foreach ($project['project_tags'] as $tag): ?>
-						<div class="projects-item-subtitle upper"><?php echo esc_html(strtoupper($tag)) ?></div>
-					<?php endforeach ?>
-					<h3 class="title projects-item-title"><?php echo esc_html($project['project_name']) ?></h3>
+
+					<div class="projects-item-main">
+						<div class="projects-item-main-in">
+							<?php foreach ($project['project_tags'] as $tag): ?>
+								<div class="projects-item-subtitle upper"><?php echo esc_html(strtoupper($tag)) ?></div>
+							<?php endforeach ?>
+							<h3 class="title projects-item-title"><?php echo esc_html($project['project_name']) ?></h3>
+						</div>
+					</div>
+
 					<div class="projects-item-btn">
 						<a href="<?php echo esc_attr($project['donate_url']) ?>" class="btn view-secondary-s"><?php echo esc_html($project['donate_label']) ?></a>
 					</div>
