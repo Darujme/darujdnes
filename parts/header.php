@@ -2,7 +2,7 @@
 $bg = metaimage('h_image', 'l', $Post);
 ?>
 <header class="header"<?php if($bg){?> style="background-image:url(<?php echo $bg;?>);"<?php }?>>
-	<div class="container view-l view-relative">
+	<div class="container view-relative">
 		<h1 class="header-title title"><?php echo nl2br(rwmb_meta( 'h_title', '', $Post)); ?></h1>
 		<div class="section-desc">
 			<p>
