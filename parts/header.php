@@ -42,7 +42,7 @@ $bg = metaimage('h_image', 'l', $Post);
 		<?php }else{
 			if($ctaPrice || $ctaButton){
 		?>
-		<div class="contributebox">
+		<div class="contributebox<?php if($ctaButton && $ctaLogo && !$ctaPrice){ ?> view-logobutton<?php } ?>">
 			<table>
 				<tr>
 					<?php

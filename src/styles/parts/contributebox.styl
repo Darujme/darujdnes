@@ -18,7 +18,7 @@
 		border-radius 50%
 		position relative
 		overflow hidden
-		margin-right 30px
+		margin-right 10px
 		img
 			absolute-center()
 	&-main
@@ -39,15 +39,18 @@
 			font-size 26px
 
 	@media $600M
-		table
-			td
-				display block
-				padding 5px 0
+		&:not(.view-logobutton)
+			table
+				td
+					display block
+					padding 5px 0
 
 	@media $600
 		padding 25px
 		display inline-block
 		vertical-align middle
+		&-img
+			margin-right 30px
 		&-main
 			padding-right 40px
 		&-message
