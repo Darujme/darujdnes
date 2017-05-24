@@ -14,7 +14,7 @@ $v = '1.02';
 <title><?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(); ?></title>
 <meta name="description" content="<?php bloginfo('description'); ?>" />
 
-<meta property="og:url"                content="<?php echo home_url();?>" />
+<meta property="og:url"                content="<?php echo get_permalink();?>" />
 <meta property="og:type"               content="website" />
 <meta property="og:title"              content="<?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(); ?>" />
 <meta property="og:description"        content="<?php bloginfo('description'); ?>" />
