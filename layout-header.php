@@ -25,7 +25,7 @@ $bg = metaimage('h_image', 'l', $Post);
 
 <link rel="stylesheet" href="<?php assetsPath();?>/styles/print.css" media="print">
 
-<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
 
 <link rel="icon" type="image/png" href="<?php assetsPath();?>/images/favicon.png?v=darujdnes<?php echo $v;?>" sizes="16x16">
 <link rel="icon" type="image/png" href="<?php assetsPath();?>/images/favicon-32x32.png?v=darujdnes<?php echo $v;?>" sizes="32x32">
