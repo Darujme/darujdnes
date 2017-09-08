@@ -8,10 +8,12 @@ Z větve `deploy/beta` autodeploy na AWS [daruj-dnes.mgw.cz](https://daruj-dnes.
 2. Stáhněte si tento repozitář jako ZIP
 3. Jděte do témat a přidejte nové téma, nahrajte toto a aktivujte
 4. Nainstalujte plugin dle pokynů ve WordPressu
-5. Jděte do nastavení a nastavte, že úvodní stránka bude "statická" a vyberte stránku, kterou jste si založili v sekci Stránky (Pages)
-6. Hotovo.
+5. Založte si stránku v Pages. Založené stránce nastavte šablonu stránky (v pravém bočním menu) na "homepage" a uložte. Následně se objeví nastavení, která vám umožní vyladit vaši dárcovskou stránku na maximum. (Více viz níže v "Nastavení".)
+6. Jděte do nastavení a nastavte, že úvodní stránka bude "statická" a vyberte stránku, kterou jste si založili v předchozím bodě.
+7. Jděte v levém menu do záložky "Darujme.cz" a doplňte potřebná nastavení (API id, projekty atd.) (Více viz níže v "Nastavení".)
+8. Hotovo.
 
-## Nastavení
+## Nápověda k nastavení
 1. V nastavení stránky (kteru jste vybrali v kroku 5 předchozí sekce) si můžete nastavit logo, napsat texty, nastavit cílovou částku, kam povedou tlačítka atd. 
 2. Následně vlevo dole v menu najdete symbol motýla a "Darujme.cz". Zde naleznete nastavení propojení s Darujme.cz. Nejprve potřebujete [API token](https://www.darujme.cz/napoveda-api/). Následně můžete přidávat 1 - 9 projektů či dárcovských výzev k zobrazení ve spodní části stránky. Můžete zde také změnit primární a sekundární barvu tématu na libovolnou a změnit texty v patičce.
 3. Máte hotovo - přejeme hodně vybraných darů!
