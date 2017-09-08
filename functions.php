@@ -48,7 +48,11 @@ add_action('init', 'mango_styles');
 
 // return first image url from metabox image_advanced
 function metaimage($meta, $size, $post){
-	$return = array_values(rwmb_meta( $meta, 'type=image&size='.$size, $post))[0]['url'];
+	if(!empty(rwmb_meta( $meta, 'type=image&size='.$size, $post))) {
+		$return = array_values(rwmb_meta( $meta, 'type=image&size='.$size, $post))[0]['url'];
+	} else {
+		$return = "null";
+	}
 
 	return $return;
 }
