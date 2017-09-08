@@ -37,9 +37,9 @@ add_theme_support( 'admin-bar', array( 'callback' => '__return_false' ) );
 function mango_styles() {
     if (!is_admin() && !(is_login_page())) {
         if(file_exists( __DIR__.'/assets/styles/index_colored.css')){
-          wp_enqueue_style('theme-main', getAssetsPath().'/styles/index_colored.css?v='.$v);
+          wp_enqueue_style('theme-main', getAssetsPath().'/styles/index_colored.css');
         }else{
-          wp_enqueue_style('theme-main', getAssetsPath().'/styles/index.css?v='.$v);
+          wp_enqueue_style('theme-main', getAssetsPath().'/styles/index.css');
         }
     }
 }
