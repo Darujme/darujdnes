@@ -7,7 +7,7 @@ Z větve `deploy/beta` autodeploy na AWS [daruj-dnes.mgw.cz](https://daruj-dnes.
 1. Potřebujete si nainstalovat [Wordpress](https://wordpress.org/download/)
 2. Stáhněte si tento repozitář jako ZIP
 3. Jděte do témat a přidejte nové téma, nahrajte toto a aktivujte
-4. Nainstalujte plugin dle pokynů ve WordPressu
+4. Nainstalujte pluginy dle pokynů ve WordPressu
 5. Založte si stránku v Pages. Založené stránce nastavte šablonu stránky (v pravém bočním menu) na "homepage" a uložte. Následně se objeví nastavení, která vám umožní vyladit vaši dárcovskou stránku na maximum. (Více viz níže v "Nastavení".)
 6. Jděte do nastavení a nastavte, že úvodní stránka bude "statická" a vyberte stránku, kterou jste si založili v předchozím bodě.
 7. Jděte v levém menu do záložky "Darujme.cz" a doplňte potřebná nastavení (API id, projekty atd.) (Více viz níže v "Nastavení".)
