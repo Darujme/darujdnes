@@ -64,12 +64,28 @@ function register_meta_boxes( $meta_boxes ) {
 				'id'    => 'cta_target',
 				'name'  => 'Zobrazit cílovou částku?',
 				'type'  => 'checkbox',
-				'desc'	=> '(Vyžaduje aktivní vybranou částku.)'
+				'desc'  => '(Vyžaduje aktivní vybranou částku.)'
 			),
 			array(
 				'id'    => 'cta_target_price',
 				'name'  => 'Cílová částka',
 				'type'  => 'text'
+			),
+			array(
+				'name' => 'Časový úsek',
+				'type' => 'heading',
+			),
+			array(
+				'id'          => 'cta_timerange_start',
+				'name'        => 'Začátek (včetně)',
+				'type'        => 'date',
+				'placeholder' => 'nepovinné'
+			),
+			array(
+				'id'          => 'cta_timerange_end',
+				'name'        => 'Konec (včetně)',
+				'type'        => 'date',
+				'placeholder' => 'nepovinné'
 			),
 		)
 	);
