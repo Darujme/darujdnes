@@ -4,6 +4,11 @@ $ctaButton = rwmb_meta( 'cta_button', '', $Post);
 $ctaButtonLabel = rwmb_meta( 'cta_button_label', '', $Post);
 $ctaButtonLink = rwmb_meta( 'cta_button_link', '', $Post);
 $ctaPrice = rwmb_meta( 'cta_price', '', $Post);
+$ctaTimerangeStart = rwmb_meta( 'cta_timerange_start', '', $Post);
+$ctaTimerangeEnd = rwmb_meta( 'cta_timerange_end', '', $Post);
+$range = [ 'fromDate' => $ctaTimerangeStart, 'toDate' => $ctaTimerangeEnd ];
+
+$collectedAmount = darujmeCountCollectedAmount($range);
 ?>
 <section class="sticky">
 	<div class="container view-l">
@@ -24,7 +29,7 @@ $ctaPrice = rwmb_meta( 'cta_price', '', $Post);
 			if($ctaPrice){
 			?>
 			<div class="sticky-price">
-				<p>Již se vybralo: <b><?php echo str_replace(',', '&nbsp;', number_format(darujmeCountCollectedAmount(), 0));?> Kč</b></p>
+				<p>Již se vybralo: <b><?php echo str_replace(',', '&nbsp;', number_format($collectedAmount, 0));?> Kč</b></p>
 			</div>
 			<?php
 			}

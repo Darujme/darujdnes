@@ -94,16 +94,6 @@ function require_plugins() {
     tgmpa( $plugins, $config );
 }
 
-function calculateProgress(){
-	global $Post;
-
-	$target = rwmb_meta( 'cta_target_price', '', $Post);
-
-	return darujmeCalculateProgress($target);
-}
-
-
-
 
 
 

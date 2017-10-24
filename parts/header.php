@@ -28,15 +28,20 @@ $bg = metaimage('h_image', 'l', $Post);
 		$ctaProgressbar = rwmb_meta( 'cta_progressbar', '', $Post);
 		$ctaTarget = rwmb_meta( 'cta_target', '', $Post);
 		$ctaTargetPrice = rwmb_meta( 'cta_target_price', '', $Post);
+		$ctaTimerangeStart = rwmb_meta( 'cta_timerange_start', '', $Post);
+		$ctaTimerangeEnd = rwmb_meta( 'cta_timerange_end', '', $Post);
+		$range = [ 'fromDate' => $ctaTimerangeStart, 'toDate' => $ctaTimerangeEnd ];
 
-		$progress = calculateProgress();
+		$collectedAmount = darujmeCountCollectedAmount($range);
+		$progress = darujmeCalculateProgress($range, $ctaTargetPrice);
+		$donorsCount = darujmeCountDonors($range);
 
 		if(!$ctaPrice && !$ctaLogo && $ctaButton){
 		?>
 			<div class="contributebox-simple">
 				<a href="<?php print($ctaButtonLink ? $ctaButtonLink : get_permalink().'#projekty');?>" class="btn view-secondary"><?php print($ctaButtonLabel ? $ctaButtonLabel : 'Chci také darovat') ?></a>
 				<?php if($ctaSubscribers){ ?>
-					<div class="center"><small><?php echo esc_html(darujmeCountDonors()) ?> dárců</small></div>
+					<div class="center"><small><?php echo esc_html($donorsCount) ?> dárců</small></div>
 				<?php } ?>
 			</div>
 		<?php }else{
@@ -61,13 +66,13 @@ $bg = metaimage('h_image', 'l', $Post);
 					<td>
 						<div class="contributebox-main">
 							<?php if($ctaProgressbar){ ?>
-									<div class="contributebox-price view-m"><?php echo str_replace(',', '&nbsp;', number_format(darujmeCountCollectedAmount(), 0));?>&nbsp;Kč</div>
+									<div class="contributebox-price view-m"><?php echo str_replace(',', '&nbsp;', number_format($collectedAmount, 0));?>&nbsp;Kč</div>
 									<div class="progressbar">
 										<span style="width: <?php echo number_format($progress, 2, '.', '');?>%"></span>
 									</div>
 							<?php }else{ ?>
 								<p>Již se vybralo</p>
-								<div class="contributebox-price"><?php echo str_replace(',', '&nbsp;', number_format(darujmeCountCollectedAmount(), 0));?> Kč</div>
+								<div class="contributebox-price"><?php echo str_replace(',', '&nbsp;', number_format($collectedAmount, 0));?> Kč</div>
 							<?php } ?>
 
 							<?php if($ctaTarget && $ctaTargetPrice){ ?>
@@ -82,7 +87,7 @@ $bg = metaimage('h_image', 'l', $Post);
 					<td>
 						<a href="<?php print($ctaButtonLink ? $ctaButtonLink : get_permalink().'#projekty');?>" class="btn view-secondary"><?php print($ctaButtonLabel ? $ctaButtonLabel : 'Chci také darovat') ?></a>
 						<?php if($ctaSubscribers){ ?>
-						<div class="center"><small><?php echo esc_html(darujmeCountDonors()) ?> dárců</small></div>
+						<div class="center"><small><?php echo esc_html($donorsCount) ?> dárců</small></div>
 						<?php } ?>
 					</td>
 					<?php } ?>

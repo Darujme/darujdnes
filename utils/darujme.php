@@ -80,14 +80,18 @@ function darujmeGetItems() {
 	return darujmeGetSettings()['items'];
 }
 
-function darujmeApiUrl($path, $id, $secret) {
+function darujmeApiUrl($path, array $query, $id, $secret) {
 	$path = ltrim($path, '/');
-	return "https://www.darujme.cz/api/v1/$path?apiId=$id&apiSecret=$secret";
+	$query['apiId'] = $id;
+	$query['apiSecret'] = $secret;
+	$query = array_filter($query);
+	return "https://www.darujme.cz/api/v1/$path?".http_build_query($query);
 }
 
-function darujmeApiRequest($path, $id, $secret, $forceUpdate = FALSE) {
-	$url = darujmeApiUrl($path, $id, $secret);
-	$cacheKey = 'cached_darujme_api_call_' . $path;
+function darujmeApiRequest($path, array $query, $id, $secret, $forceUpdate = FALSE) {
+	$url = darujmeApiUrl($path, $query, $id, $secret);
+
+	$cacheKey = 'dac_' . md5($url);
 
 	$cached = get_option($cacheKey, NULL);
 
@@ -113,7 +117,45 @@ function darujmeApiRequest($path, $id, $secret, $forceUpdate = FALSE) {
 	return $result;
 }
 
-function darujmeLoadAll($forceUpdate = FALSE) {
+function darujmeLoadAllStats($range = [], $forceUpdate = FALSE) {
+	static $results;
+
+	if (!$results) {
+		$results = [];
+	}
+
+	$resultKey = serialize($range);
+
+	if (!empty($results[$resultKey]) && !$forceUpdate) {
+		return $results[$resultKey];
+	}
+
+	$result = [];
+
+	$apiId = darujmeGetApiId();
+	$apiSecret = darujmeGetApiSecret();
+	$items = darujmeGetItems();
+
+	foreach ($items as $original) {
+		$id = $original['id'];
+		$type = $original['type'];
+		$item = darujmeApiRequest("/$type/$id/stats", $range, $apiId, $apiSecret);
+		if ($item) {
+			$type = isset($item['promotionStats']) ? 'promotionStats' : 'projectStats';
+			$item = $item[$type];
+			$item['type'] = $type;
+			$item['original'] = $original;
+			$item['promotionId'] = $item['projectId'] = $id;
+		}
+		if ($item) {
+			$result[] = $item;
+		}
+	}
+	$results[$resultKey] = $result;
+	return $result;
+}
+
+function darujmeLoadAll($forceUpdate = TRUE) {
 	static $result;
 
 	if ($result && !$forceUpdate) {
@@ -129,12 +171,13 @@ function darujmeLoadAll($forceUpdate = FALSE) {
 	foreach ($items as $original) {
 		$id = $original['id'];
 		$type = $original['type'];
-		$item = darujmeApiRequest("/$type/$id", $apiId, $apiSecret);
+		$item = darujmeApiRequest("/$type/$id", [], $apiId, $apiSecret);
 		if ($item) {
 			$type = isset($item['promotion']) ? 'promotion' : 'project';
 			$item = $item[$type];
 			$item['type'] = $type;
 			$item['original'] = $original;
+			$item['promotionId'] = $item['projectId'] = $id;
 		}
 		if ($item) {
 			$result[] = $item;
@@ -144,15 +187,14 @@ function darujmeLoadAll($forceUpdate = FALSE) {
 	return $result;
 }
 
-function darujmeCountCollectedAmount() {
+function darujmeCountCollectedAmount($range = []) {
 	static $sum;
 
 	if ($sum !== NULL) {
 		return $sum;
 	}
 
-
-	$items = darujmeLoadAll();
+	$items = darujmeLoadAllStats($range);
 
 	$unique = [];
 
@@ -174,18 +216,18 @@ function darujmeCountCollectedAmount() {
 	return $sum;
 }
 
-function darujmeCalculateProgress($target) {
+function darujmeCalculateProgress($range = [], $target) {
 	if (!$target) {
 		return 0;
 	}
 
-	$now = darujmeCountCollectedAmount();
+	$now = darujmeCountCollectedAmount($range);
 	$percent = $now / ($target / 100);
 
 	return $percent;
 }
 
-function darujmeCountDonors() {
+function darujmeCountDonors($range = []) {
 	static $count;
 
 	if ($count !== NULL) {
@@ -193,7 +235,7 @@ function darujmeCountDonors() {
 	}
 
 
-	$items = darujmeLoadAll();
+	$items = darujmeLoadAllStats($range);
 
 	$unique = [];
 
