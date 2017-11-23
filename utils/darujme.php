@@ -1,6 +1,8 @@
 <?php
 
-define('DARUJME_CACHE_SECONDS', 15);
+if (!defined('DARUJME_CACHE_SECONDS')) {
+	define('DARUJME_CACHE_SECONDS', 15);
+}
 
 if (!function_exists('darujmeGetSettings')) {
 	function darujmeGetSettings($forceUpdate = FALSE) {
