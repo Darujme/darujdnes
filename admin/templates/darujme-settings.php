@@ -26,7 +26,7 @@ function itemRowTemplate($key, $item = NULL) {
 				<input type="radio" name="darujme_project_type[<?php echo esc_attr($key) ?>]" value="promotion" <?php echo ($type === 'promotion') ? 'checked="checked"' : '' ?>> výzva
 			</label>
 			<br>
-			<input name="darujme_project_id[<?php echo esc_attr($key) ?>]" type="text" id="darujme_project_id[<?php echo esc_attr($key) ?>]" value="<?php echo esc_attr($id) ?>" placeholder="ID projektu nebo výzvy" class="regular-text code">
+			<input name="darujme_project_id[<?php echo esc_attr($key) ?>]" type="text" id="darujme_project_id[<?php echo esc_attr($key) ?>]" value="<?php echo esc_attr($id) ?>" placeholder="ID projektu nebo výzvy (použijte vždy ID, ne číslo projektu)" class="regular-text code">
 			<br>
 			<input name="darujme_project_donate_label[<?php echo esc_attr($key) ?>]" type="text" id="darujme_project_donate_label[<?php echo esc_attr($key) ?>]" value="<?php echo esc_attr($donate_label) ?>" class="regular-text" placeholder="Popis tlačítka (nepovinné, výchozí: Chci darovat)">
 			<br>
